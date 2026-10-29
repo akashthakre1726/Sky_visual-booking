@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>SKY VISUAL | Public Show Booking</title>
+<style>
+:root{--bg:#080808;--panel:#141414;--gold:#e4bd68;--muted:#aaa49a;--green:#73c78c;--purple:#c6a0e9}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211a0d 0,#080808 52%);color:#f6f2e9;font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:850px;margin:auto;padding:16px 12px 36px}.hero{text-align:center;padding:24px 12px 20px;border:1px solid #5d4824;border-radius:20px;background:linear-gradient(145deg,#17130c,#090909 70%);box-shadow:0 12px 40px #0008}.brand{font-weight:900;letter-spacing:.14em;font-size:clamp(28px,6vw,42px);color:var(--gold)}.tag{color:#c6b58f;font-size:11px;letter-spacing:.13em}.hero h1{font-size:clamp(20px,4vw,28px);margin:14px 0 5px}.hero p{color:var(--muted);margin:0;font-size:14px}.panel{margin-top:15px;background:#111;border:1px solid #30271a;border-radius:18px;padding:15px}.months{display:flex;gap:8px;margin-bottom:14px}.months button,.action{border:1px solid #665027;background:#18150f;color:var(--gold);padding:11px 14px;border-radius:10px;font-weight:750;cursor:pointer}.months button{flex:1}.months button.active,.action.primary{background:linear-gradient(135deg,#e5c477,#a87b2b);color:#15110a;border-color:#e5c477}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.weekday{text-align:center;color:#c8a65e;font-size:11px;font-weight:800;padding:6px 0}.day{min-height:56px;border:1px solid #302e29;border-radius:9px;background:#171717;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;font-size:15px}.day:disabled{visibility:hidden}.day.selected{outline:2px solid var(--gold);background:#392b14}.day.past{opacity:.35}.dot{width:6px;height:6px;border-radius:50%;background:var(--green)}.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;color:#bbb;font-size:12px}.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;background:var(--green)}h2{font-size:18px;color:var(--gold);margin:0 0 9px}.selected-date{font-weight:750;margin-bottom:12px}.hint{color:#aaa49a;font-size:12px;margin:8px 0 0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.full{grid-column:1/-1}label{display:block;color:#c9c1b4;font-size:12px;margin:11px 0 5px}input,select,textarea{width:100%;background:#090909;color:#fff;border:1px solid #39342b;border-radius:10px;padding:12px;font:inherit}select option{background:#111}textarea{resize:vertical}.action{width:100%;margin-top:14px}.action.whatsapp{background:#176b3a;border-color:#278a50;color:#fff}.contact{text-align:center;padding:18px 8px 5px}.contact p{color:#c4c0b8;font-size:13px}.contact a{color:var(--gold);font-weight:800;text-decoration:none;border:1px solid #6e552a;border-radius:10px;padding:10px 16px;display:inline-block}.footer{text-align:center;color:#777;font-size:11px;margin-top:18px}.warning{color:#d6c69e;background:#1b170e;border:1px solid #574523;border-radius:10px;padding:10px;font-size:12px;margin-top:12px}@media(max-width:430px){.wrap{padding:10px 8px 25px}.panel{padding:12px}.day{min-height:46px;border-radius:7px}.calendar{gap:3px}.fields{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><div class="brand">✦ SKY VISUAL</div><div class="tag">LIVE VISUALS · DJ SHOWS · LED WALLS</div><h1>SHOW BOOKING CALENDAR</h1><p>Select a preferred date and send your inquiry on WhatsApp.</p></header>
+<section class="panel"><div class="months"><button id="prevBtn" type="button" aria-label="Previous month">← Previous</button><button id="monthLabel" class="active" type="button" disabled>NOV 2026</button><button id="nextBtn" type="button" aria-label="Next month">Next →</button></div><div id="calendar" class="calendar" aria-label="Choose preferred date"></div><div class="legend"><span><i></i>Preferred date</span></div><p class="hint">Selecting a date sends an inquiry only; your show is confirmed after SKY VISUAL replies.</p></section>
+<section class="panel"><h2>Send a booking inquiry</h2><div class="selected-date" id="selectedDate"></div>
+<form id="bookingForm">
+<div class="fields">
+<div><label for="name">Your name *</label><input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Full name"></div>
+<div><label for="phone">Your phone / WhatsApp *</label><input id="phone" name="phone" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="Your contact number"></div>
+<div class="full"><label for="type">Show type *</label><select id="type" name="type" required><option value="">Select event type</option><option>Live VJ / DJ Show</option><option>LED Wall Visuals</option><option>DJ Logo Animation</option><option>Festival / Garba Event</option><option>Wedding / Private Event</option><option>Stage Visuals / Other</option></select></div>
+<div class="full"><label for="venue">Venue / city *</label><input id="venue" name="venue" required maxlength="120" placeholder="Event location"></div>
+<div class="full"><label for="details">Event details (optional)</label><textarea id="details" name="details" rows="3" maxlength="500" placeholder="Event timing, duration, requirements..."></textarea></div>
+</div>
+<button class="action whatsapp" type="submit">Send inquiry on WhatsApp ↗</button>
+<p class="hint">WhatsApp will open with your message ready. Review it and tap Send. No payment is taken on this page.</p>
+</form>
+<div class="warning">Availability is not live-synced. This form sends a request to SKY VISUAL; it does not automatically reserve or confirm a date.</div></section>
+<section class="panel contact"><h2>SKY VISUAL</h2><p>Live VJ · DJ Logo Animation · 3D Typography · LED Wall Visuals · Stage Events</p><a href="https://www.instagram.com/vj_aakashthakre/" target="_blank" rel="noopener">Instagram: @vj_aakashthakre ↗</a></section>
+<div class="footer">SKY VISUAL © 2026</div></main>
+<script>
+(()=>{
+// IMPORTANT: Replace the placeholder below with your WhatsApp number in international format,
+// digits only. For India, use 91 followed by the 10-digit mobile number; no +, spaces or dashes.
+const WHATSAPP_NUMBER='917743896071';
+const START_MONTH=11, END_MONTH=34; // Nov 2026 through Oct 2028
+let month=START_MONTH, selected='2026-11-01';
+const $=id=>document.getElementById(id), pad=n=>String(n).padStart(2,'0');
+const keyFor=d=>{const year=2026+Math.floor((month-1)/12), m=((month-1)%12)+1;return `${year}-${pad(m)}-${pad(d)}`;};
+const pretty=key=>new Date(key+'T12:00:00').toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function render(){
+ const year=2026+Math.floor((month-1)/12), m=((month-1)%12)+1;
+ $('monthLabel').textContent=new Date(year,m-1,1).toLocaleDateString('en-US',{month:'short',year:'numeric'}).toUpperCase();
+ $('prevBtn').disabled=month<=START_MONTH;$('nextBtn').disabled=month>=END_MONTH;
+ const cal=$('calendar');cal.innerHTML='';
+ ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(w=>{const e=document.createElement('div');e.className='weekday';e.textContent=w;cal.appendChild(e);});
+ const first=new Date(year,m-1,1).getDay(),count=new Date(year,m,0).getDate();
+ for(let i=0;i<first;i++){const b=document.createElement('button');b.className='day';b.disabled=true;cal.appendChild(b);}
+ for(let d=1;d<=count;d++){const k=keyFor(d),b=document.createElement('button');b.type='button';b.className='day'+(selected===k?' selected':'');b.innerHTML='<span>'+d+'</span><span class="dot"></span>';b.setAttribute('aria-label','Choose '+pretty(k));b.addEventListener('click',()=>{selected=k;render();});cal.appendChild(b);}
+ $('selectedDate').textContent='Preferred date: '+pretty(selected);
+}
+$('prevBtn').addEventListener('click',()=>{if(month>START_MONTH){month--;const y=2026+Math.floor((month-1)/12),m=((month-1)%12)+1;selected=`${y}-${pad(m)}-01`;render();}});
+$('nextBtn').addEventListener('click',()=>{if(month<END_MONTH){month++;const y=2026+Math.floor((month-1)/12),m=((month-1)%12)+1;selected=`${y}-${pad(m)}-01`;render();}});
+$('bookingForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ if(!/^[1-9]\d{7,14}$/.test(WHATSAPP_NUMBER)){alert('Please check the WhatsApp booking number in the website setup.');return;}
+ const val=id=>$(id).value.trim();
+ const message=`SKY VISUAL — SHOW BOOKING INQUIRY\nPreferred date: ${pretty(selected)}\nName: ${val('name')}\nClient WhatsApp: ${val('phone')}\nShow type: ${val('type')}\nVenue/city: ${val('venue')}\nEvent details: ${val('details')||'Not provided'}\n\nPlease confirm date availability.`;
+ location.href='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(message);
+});
+render();
+})();
+</script></body></html>
